@@ -41,4 +41,5 @@ Como usuário, gostaria de que cada usuário possua quantos pokemons favoritos o
 
 # Diagram de Classes
 
+![image](https://user-images.githubusercontent.com/102178039/193463191-4986a64c-755b-46bf-aa17-0700e0ba7174.png)
 
