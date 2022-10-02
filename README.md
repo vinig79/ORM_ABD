@@ -37,7 +37,8 @@ Como usuário, gostaria de que cada usuário possua quantos pokemons favoritos o
 - Para que o cliente tenha um feedback satisfatorio a cada uma semana sera gravado um video de como o projeto esta caminhando, de prefencia no mesmo deve ser usada uma linguagem simples e exemplos mais graficos possiveis
 
 # Modelo Entidade Relacionamento (MER).
-![image](https://user-images.githubusercontent.com/102178039/193436056-4a72c503-8866-4bf8-89eb-9ccfa558512e.png)
+![image](https://user-images.githubusercontent.com/102178039/193474261-3f177e5f-6a1c-4fe3-92ea-bdde6fc5cf81.png)
+
 
 # Diagram de Classes
 
