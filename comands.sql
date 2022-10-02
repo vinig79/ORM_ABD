@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS user_pok (
    id_user   INTEGER    NOT NULL
 );
 
-ALTER TABLE Ranking  ADD CONSTRAINT FK_Ranking__id_user FOREIGN KEY (id_user)    REFERENCES Usuario(id_user);
+ALTER TABLE Ranking  ADD FOREIGN KEY (id_user)    REFERENCES Usuario(id_user);
 ALTER TABLE Medalha  ADD FOREIGN KEY (id_user)    REFERENCES Usuario(id_user);
 ALTER TABLE Medalha  ADD FOREIGN KEY (id_torneio) REFERENCES Torneio(id_torneio);
 ALTER TABLE Torneio  ADD FOREIGN KEY (id_local)   REFERENCES Local_(id_local);
