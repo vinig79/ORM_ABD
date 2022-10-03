@@ -14,7 +14,7 @@ Como usuário, gostaria de atribuir medalhas aos usuarios, e que as diferentes m
 ## 4 Pokemon Favorito.
 Como usuário, gostaria de que cada usuário possua quantos pokemons favoritos o mesmo queira, isto permitira que gastemos menos tempo na escolha.
 
-# Critérios de Aceintação (CA).
+# Critérios de Aceitação (CA).
 
 1. Pokemons da Pokedex.
     - 1.1 Um pokemon pode ter no minimo zero ou no maximo dois tipos.
@@ -40,7 +40,7 @@ Como usuário, gostaria de que cada usuário possua quantos pokemons favoritos o
 ![image](https://user-images.githubusercontent.com/102178039/193474261-3f177e5f-6a1c-4fe3-92ea-bdde6fc5cf81.png)
 
 
-# Diagram de Classes
+# Diagram de Classes (UML)
 
 ![image](https://user-images.githubusercontent.com/102178039/193463191-4986a64c-755b-46bf-aa17-0700e0ba7174.png)
 
