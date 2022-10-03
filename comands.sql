@@ -49,12 +49,12 @@ CREATE TABLE IF NOT EXISTS Local_ (
 
 CREATE TABLE IF NOT EXISTS Pok_Tipo (
     id_pok    INTEGER    PRIMARY KEY,
-    id_tipo   INTEGER    PRIMARY KEY
+    id_tipo   INTEGER    NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user_pok (
    id_pok    INTEGER    PRIMARY KEY,
-   id_user   INTEGER    PRIMARY KEY
+   id_user   INTEGER    NOT NULL
 );
 
 ALTER TABLE Ranking  ADD FOREIGN KEY (id_user)    REFERENCES Usuario(id_user);
