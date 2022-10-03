@@ -56,12 +56,12 @@ class Medalha(Base):
 class Pok_tipo(Base):
     __tablename__ = "Pok_tipo"
     id_pok = Column(Integer,ForeignKey("Pokemon.id_pok"), primary_key=True)
-    id_tipo = Column(Integer,ForeignKey("Tipo.id_tipo"), primary_key=True)
+    id_tipo = Column(Integer,ForeignKey("Tipo.id_tipo"))
 
 class user_pok(Base):
     __tablename__ = "user_pok"
     id_pok = Column(Integer, ForeignKey("Pokemon.id_pok"), primary_key=True)
-    id_user = Column(Integer, ForeignKey("Usuario.id_user"), primary_key=True)
+    id_user = Column(Integer, ForeignKey("Usuario.id_user"))
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
