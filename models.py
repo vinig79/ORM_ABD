@@ -1,11 +1,15 @@
-from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer, String, create_engine, ForeignKey
+from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy import Column, Integer, String, create_engine, ForeignKey, Table
 
 # <dbms>[+<driver>]://<user>:<pass>@<host>[:<port>][/<database>]
-URL='mysql+mysqlconnector://vinig79:vinig79@127.0.0.1:3306/ABD_ORM'
+URL="mysql+mysqlconnector://aluno:aluno123@localhost/Pokedex"
 engine = create_engine(url=URL)
 
 Base = declarative_base()
+
+Pok_tipo =Table('Pok_tipo', Base.metadata, Column("id_pok", Integer, ForeignKey("Pokemon.id_pok")),Column('id_tipo', Integer, ForeignKey('Tipo.id_tipo')))
+user_pok = Table('user_pok', Base.metadata, Column("id_user", Integer, ForeignKey('Usuario.id_user')), Column('id_pok', Integer, ForeignKey('Pokemon.id_pok')))
+
 
 class Pokemon(Base):
     __tablename__ = "Pokemon"
@@ -17,6 +21,7 @@ class Pokemon(Base):
     atk_special = Column(Integer, nullable=False)
     special_defense = Column(Integer, nullable=False)
     speed = Column(Integer, nullable=False)
+    tipo = relationship("Tipo", secondary=Pok_tipo)
 
 class Tipo(Base):
     __tablename__ = "Tipo"
@@ -28,12 +33,14 @@ class Usuario(Base):
     id_user = Column(Integer, primary_key=True)
     nome = Column(String(150), nullable=False)
     email = Column(String(150), nullable=False)
+    raking = relationship('Ranking', uselist=False, back_populates='usuario')
 
 class Rankin(Base):
     __tablename__ = "Ranking"
     id_user = Column(Integer, ForeignKey("Usuario.id_user"), primary_key=True)
     position = Column(Integer, nullable=False)
     vitorias = Column(Integer, nullable=False)
+    usuario = relationship("Usuario",back_populates="ranking")
 
 class Local_(Base):
     __tablename__ = "Local_"
@@ -45,6 +52,8 @@ class Torneio(Base):
     id_torneio = Column(Integer, primary_key=True)
     id_local = Column(Integer, ForeignKey("Local_.id_local"), nullable=False)
     nome = Column(String(150), nullable=False)
+    medalha = relationship('Medalha')
+
 
 class Medalha(Base):
     __tablename__ = "Medalha"
@@ -52,16 +61,6 @@ class Medalha(Base):
     id_user = Column(Integer, ForeignKey("Usuario.id_user"))
     nome = Column(String(150), nullable=False)
     id_torneio = Column(Integer, ForeignKey("Torneio.id_torneio"))
-
-class Pok_tipo(Base):
-    __tablename__ = "Pok_tipo"
-    id_pok = Column(Integer,ForeignKey("Pokemon.id_pok"), primary_key=True)
-    id_tipo = Column(Integer,ForeignKey("Tipo.id_tipo"))
-
-class user_pok(Base):
-    __tablename__ = "user_pok"
-    id_pok = Column(Integer, ForeignKey("Pokemon.id_pok"), primary_key=True)
-    id_user = Column(Integer, ForeignKey("Usuario.id_user"))
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
